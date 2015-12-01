@@ -1,0 +1,12 @@
+development:
+  worldcat:
+    uri: " http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch"
+    key: "Qa5IIztUtW8adYiUVkHIGAv973beBztMHkXOTXy3ELGofy4cF6tIrZBXPGxhW789QcdZvNYsmgDy3R4j"
+  goodreads:
+    uri: "http://www.goodreads.com/book/isbn"
+    key: "uv1J3LcJ7zGuhzCXwaCcUQ"
+    secret: "QT7rbUZI5usLKYL24i5H1KrNJYN52cBpGRbPHNaVI"
+  payments:
+    internal: "http://localhost:8080/v1/payments/verify_payment"
+    external: "http://demo.seco.tkk.fi/ws/3/WebServices/bank"
+

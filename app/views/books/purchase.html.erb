@@ -1,0 +1,47 @@
+<h1> Book </h1>
+<table border='1'>
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Title</td>
+			<td>Author</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><img src="<%=@image%>"/></td>
+			<td><%= @title %></td>
+			<td><%= @author %></td>
+		</tr>
+	</tbody>
+</table>
+<div>
+<h1> Payment </h1>
+<%= form_tag confirm_payment_books_path do %>
+	<%= hidden_field_tag "title",@title %>
+	<%= hidden_field_tag "author",@author %>
+	<%= hidden_field_tag "image",@image %>
+
+	<div style="margin-bottom: 10px;">
+		<%= label_tag "service_external",'External Service'%>
+		<%= radio_button_tag 'service','external' %>
+		<%= label_tag "service_internal",'Internal Service' %>
+		<%= radio_button_tag 'service','internal' %>
+	</div>
+	<div>
+		<%= label_tag "Fullname" %>
+		<%= text_field_tag "fullname" %>
+	</div>
+	<div>
+		<%= label_tag "Card Number" %>
+		<%= text_field_tag "cardNumber" %>
+	</div>
+		<%= label_tag "CCV" %>
+		<%= text_field_tag "ccv" %>
+	</div>
+	<div>
+		<%= submit_tag "Purchase" %>
+	</div>
+
+<% end %>
+</div>

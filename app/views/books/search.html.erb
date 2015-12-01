@@ -1,0 +1,47 @@
+<h1> Result </h1>
+<table border='1'>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Title</th>
+			<th>Author</th>
+			<th style="width: 300px">Description</th>
+			<th>Information</th>
+			<th style="width: 100px;text-align: center"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @books.each do |book| %>
+			<tr>
+				<td>
+					<img src="<%= book['additionalInformation']['small_image_url']%>" width="50" height="50" />
+				</td>
+				<td>
+					<%= book['title'] %>
+				</td>
+				<td>
+					<%= book['author']['name'] %>
+				</td>
+				<td>
+					<%= raw book['additionalInformation']['description'] %>
+				</td>
+				<td>
+					<ul>
+						<li> Publisher: <%=book['additionalInformation']['publisher'] %></li>
+						<li> Year: <%=book['additionalInformation']['publication_year'] %></li>
+						<li> Rate: <%=book['additionalInformation']['average_rating'] %></li>
+					</ul>
+				</td>
+				<td>
+					<%= form_tag purchase_books_path do %>
+						<%= hidden_field_tag "title",book['title'] %>
+						<%= hidden_field_tag "author",book['author']['name'] %>
+						<%= hidden_field_tag "image",book['additionalInformation']['small_image_url'] %>
+
+						<%= submit_tag "Buy" %>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
